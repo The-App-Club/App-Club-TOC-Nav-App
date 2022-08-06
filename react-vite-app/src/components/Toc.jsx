@@ -94,7 +94,7 @@ const Toc = ({className = css``}) => {
             }
 
             .toc-link {
-              height: 1.5rem;
+              height: 1.25rem;
               &:not(.is-active-link)::before {
                 background-color: transparent;
               }

@@ -141,7 +141,7 @@ const TocSp = ({opened, setOpened, isTrigger, setIsTrigger}) => {
           }
 
           .toc-link {
-            height: 1.5rem;
+            height: 1.25rem;
             &:not(.is-active-link)::before {
               background-color: transparent;
             }
