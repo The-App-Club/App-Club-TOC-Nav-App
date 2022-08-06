@@ -1,5 +1,6 @@
 import {css, cx} from '@emotion/css';
 import {useEffect} from 'react';
+// import tocbot from 'tocbot';
 
 const Toc = ({className = css``}) => {
   useEffect(() => {
@@ -9,7 +10,11 @@ const Toc = ({className = css``}) => {
       // Where to grab the headings to build the table of contents.
       contentSelector: 'main',
       // Which headings to grab inside of the contentSelector element.
-      headingSelector: 'h1, h2, h3',
+      headingSelector: 'article.blog > section > h1, h2, h3',
+      // scrollEndCallback: function(e) {
+      //   console.log(`end`, e)
+      // },
+      scrollSmoothOffset: -40,
     });
 
     return () => {

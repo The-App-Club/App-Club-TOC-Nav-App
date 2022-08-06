@@ -7,7 +7,7 @@ const makeSlugURL = () => {
 
 const Article = () => {
   return (
-    <article>
+    <article className="blog">
       <section
         className={css`
           width: 100%;
@@ -23,7 +23,7 @@ const Article = () => {
           p {
             font-size: 1.2rem;
           }
-          h1,
+          h1:not(:first-child),
           h2,
           h3 {
             padding: 1rem 0 0;

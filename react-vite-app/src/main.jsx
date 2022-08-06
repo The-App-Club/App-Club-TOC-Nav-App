@@ -28,35 +28,53 @@ const App = () => {
           width: 100%;
           max-width: 60rem;
           margin: auto;
-          display: flex;
-          gap: 1rem;
-          padding: 3rem 0.5rem 0;
-          @media (max-width: 1000px) {
-            aside {
-              order: 1;
-            }
-            article {
-              order: 2;
-            }
-            justify-content: flex-start;
-            flex-direction: column;
-          }
-          @media (max-width: 768px) {
-          }
+          padding: 5rem 0.5rem 0;
         `}
       >
-        <Article />
-        <Toc
+        <div
           className={css`
+            padding-bottom: 1rem;
+          `}
+        >
+          <p>Something...</p>
+          <p>Something...</p>
+          <p>Something...</p>
+          <p>Something...</p>
+          <p>Something...</p>
+          <p>Something...</p>
+        </div>
+        <div
+          className={css`
+            position: relative;
+            width: 100%;
+            display: flex;
+            gap: 1rem;
             @media (max-width: 1000px) {
-              min-width: 20rem;
-              height: 100%;
-              position: relative;
-              top: initial;
-              /* display: none; */
+              aside {
+                order: 1;
+              }
+              article {
+                order: 2;
+              }
+              justify-content: flex-start;
+              flex-direction: column;
+            }
+            @media (max-width: 768px) {
             }
           `}
-        />
+        >
+          <Article />
+          <Toc
+            className={css`
+              @media (max-width: 1000px) {
+                min-width: 20rem;
+                height: 100%;
+                position: relative;
+                top: initial;
+              }
+            `}
+          />
+        </div>
       </main>
       <Footer />
     </div>
