@@ -2,18 +2,39 @@ import {css, cx} from '@emotion/css';
 import {useEffect} from 'react';
 // import tocbot from 'tocbot';
 
+import {useSynchroToc} from '../hooks/useSynchroToc';
+
 const Toc = ({className = css``}) => {
+  const getActiveLinkHref = () => {
+    return [...document.querySelectorAll('nav.pc a')]
+      .find((dom) => {
+        return dom.classList.contains('is-active-link');
+      })
+      .getAttribute('href');
+  };
+
+  const {activeHref, setAcitveHref} = useSynchroToc((state) => {
+    return {
+      activeHref: state.activeHref,
+      setAcitveHref: state.setAcitveHref,
+    };
+  });
   useEffect(() => {
     tocbot.init({
       // Where to render the table of contents.
-      tocSelector: '.js-toc',
+      tocSelector: 'nav.pc',
       // Where to grab the headings to build the table of contents.
       contentSelector: 'main',
       // Which headings to grab inside of the contentSelector element.
       headingSelector: 'article.blog > section > h1, h2, h3',
-      // scrollEndCallback: function(e) {
-      //   console.log(`end`, e)
-      // },
+      scrollEndCallback: function (e) {
+        const href = getActiveLinkHref();
+        setAcitveHref({href});
+      },
+      onClick: function (e) {
+        const href = e.currentTarget.getAttribute('href');
+        setAcitveHref({href});
+      },
       scrollSmoothOffset: -40,
     });
 
@@ -30,13 +51,18 @@ const Toc = ({className = css``}) => {
           position: sticky;
           top: 3rem;
           height: 100%;
+          @media (max-width: 1000px) {
+            nav {
+              display: none;
+            }
+          }
         `,
         className
       )}
     >
       <nav
         className={cx(
-          `js-toc`,
+          `pc`,
           css`
             & {
               width: 100%;

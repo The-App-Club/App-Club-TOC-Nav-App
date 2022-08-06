@@ -2,14 +2,17 @@ import {css, cx} from '@emotion/css';
 import {Toc} from './Toc';
 import 'hamburgers/dist/hamburgers.css';
 import {useState} from 'react';
+import {TocSp} from './TocSp';
 
 const Header = () => {
   const [opened, setOpened] = useState(false);
+  const [isTrigger, setIsTrigger] = useState(false);
 
   const handleClick = () => {
     setOpened((opened) => {
       return !opened;
     });
+    setIsTrigger(true);
   };
 
   return (
@@ -32,6 +35,12 @@ const Header = () => {
             min-height: 3rem;
             display: flex;
             align-items: center;
+            display: none;
+            @media (max-width: 1000px) {
+              & {
+                display: flex;
+              }
+            }
           `}
         >
           <div
@@ -64,6 +73,12 @@ const Header = () => {
           </div>
         </div>
       </header>
+      <TocSp
+        opened={opened}
+        setOpened={setOpened}
+        isTrigger={isTrigger}
+        setIsTrigger={setIsTrigger}
+      />
     </>
   );
 };
