@@ -1,14 +1,33 @@
 import {css, cx} from '@emotion/css';
+import {useEffect} from 'react';
 
-const Toc = () => {
+const Toc = ({className = css``}) => {
+  useEffect(() => {
+    tocbot.init({
+      // Where to render the table of contents.
+      tocSelector: '.js-toc',
+      // Where to grab the headings to build the table of contents.
+      contentSelector: 'main',
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: 'h1, h2, h3',
+    });
+
+    return () => {
+      tocbot.destroy();
+    };
+  }, []);
+
   return (
     <aside
-      className={css`
-        min-width: 20rem;
-        position: sticky;
-        top: 3rem;
-        height: 100%;
-      `}
+      className={cx(
+        css`
+          min-width: 20rem;
+          position: sticky;
+          top: 3rem;
+          height: 100%;
+        `,
+        className
+      )}
     >
       <nav
         className={cx(

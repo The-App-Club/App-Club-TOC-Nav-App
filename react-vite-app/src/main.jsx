@@ -15,44 +15,48 @@ const makeSlugURL = () => {
 };
 
 const App = () => {
-  useEffect(() => {
-    tocbot.init({
-      // Where to render the table of contents.
-      tocSelector: '.js-toc',
-      // Where to grab the headings to build the table of contents.
-      contentSelector: 'main',
-      // Which headings to grab inside of the contentSelector element.
-      headingSelector: 'h1, h2, h3',
-    });
-
-    return () => {
-      tocbot.destroy();
-    };
-  }, []);
-
   return (
     <div
       className={css`
-        position: relative;
         width: 100%;
       `}
     >
       <Header />
       <main
         className={css`
+          position: relative;
           width: 100%;
           max-width: 60rem;
           margin: auto;
           display: flex;
           gap: 1rem;
-          padding-top: 3rem;
+          padding: 3rem 0.5rem 0;
+          @media (max-width: 1000px) {
+            aside {
+              order: 1;
+            }
+            article {
+              order: 2;
+            }
+            justify-content: flex-start;
+            flex-direction: column;
+          }
           @media (max-width: 768px) {
-            
           }
         `}
       >
         <Article />
-        <Toc />
+        <Toc
+          className={css`
+            @media (max-width: 1000px) {
+              min-width: 20rem;
+              height: 100%;
+              position: relative;
+              top: initial;
+              /* display: none; */
+            }
+          `}
+        />
       </main>
       <Footer />
     </div>

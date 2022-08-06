@@ -31,27 +31,27 @@ const Article = () => {
         `}
       >
         <h1 id={makeSlugURL()}>Chapter 1</h1>
-        <LoremIpsum p={2} />
+        <LoremIpsum random={false} p={2} />
         <h2 id={makeSlugURL()}>Section 1</h2>
-        <LoremIpsum p={2} />
+        <LoremIpsum random={false} p={2} />
         <h3 id={makeSlugURL()}>Section 1-1</h3>
-        <LoremIpsum p={3} />
+        <LoremIpsum random={false} p={3} />
         <h3 id={makeSlugURL()}>Section 1-2</h3>
-        <LoremIpsum p={2} />
+        <LoremIpsum random={false} p={2} />
         <h2 id={makeSlugURL()}>Section 2</h2>
-        <LoremIpsum p={2} />
+        <LoremIpsum random={false} p={2} />
         <h3 id={makeSlugURL()}>Section 2-1</h3>
-        <LoremIpsum p={3} />
+        <LoremIpsum random={false} p={3} />
         <h1 id={makeSlugURL()}>Chapter 2</h1>
-        <LoremIpsum p={3} />
+        <LoremIpsum random={false} p={3} />
         <h2 id={makeSlugURL()}>Section 1</h2>
-        <LoremIpsum p={2} />
+        <LoremIpsum random={false} p={2} />
         <h2 id={makeSlugURL()}>Section 2</h2>
-        <LoremIpsum p={2} />
+        <LoremIpsum random={false} p={2} />
         <h2 id={makeSlugURL()}>Section 3</h2>
-        <LoremIpsum p={2} />
+        <LoremIpsum random={false} p={2} />
         <h1 id={makeSlugURL()}>Chapter 3</h1>
-        <LoremIpsum p={3} />
+        <LoremIpsum random={false} p={3} />
       </section>
     </article>
   );
