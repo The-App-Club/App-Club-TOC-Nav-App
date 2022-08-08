@@ -128,7 +128,7 @@ const TocSp = ({opened, setOpened, isTrigger, setIsTrigger}) => {
           }
 
           .toc-list .toc-list {
-            padding-left: 1rem;
+            padding-left: 1.25rem;
             padding-top: 0.5rem;
           }
 
