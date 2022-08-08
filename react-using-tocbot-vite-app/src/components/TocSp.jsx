@@ -83,7 +83,7 @@ const TocSp = ({opened, setOpened, isTrigger, setIsTrigger}) => {
 
   useEffect(() => {
     if (opened) {
-      // document.body.classList.add('loading');
+      document.body.classList.add('loading');
       gsap.to(navContainerDomRef.current, {
         x: `0%`,
         duration: 0.6,
@@ -93,7 +93,7 @@ const TocSp = ({opened, setOpened, isTrigger, setIsTrigger}) => {
         },
       });
     } else {
-      // document.body.classList.remove('loading');
+      document.body.classList.remove('loading');
       gsap.to(navContainerDomRef.current, {
         x: `100%`,
         duration: 0.6,
