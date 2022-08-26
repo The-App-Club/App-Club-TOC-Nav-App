@@ -26,7 +26,7 @@ const Toc = ({className = css``}) => {
       // Where to grab the headings to build the table of contents.
       contentSelector: 'main',
       // Which headings to grab inside of the contentSelector element.
-      headingSelector: 'article.blog > section > h1, h2, h3',
+      headingSelector: 'section.blog > h1, h2, h3',
       scrollEndCallback: function (e) {
         const href = getActiveLinkHref();
         setAcitveHref({href});
